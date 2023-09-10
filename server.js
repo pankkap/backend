@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors')
 const postRoute = require('./Routes/postsRoute')
 const userRoute = require('./Routes/usersRoute')
 const app = express()
@@ -15,6 +16,7 @@ app.get('/', (req, res)=>{
 // Middleware
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
+app.use(cors())
 app.use('/api/posts', postRoute)
 app.use('/api/users', userRoute)
 

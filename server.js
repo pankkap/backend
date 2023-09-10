@@ -19,6 +19,7 @@ app.use('/api/posts', postRoute)
 app.use('/api/users', userRoute)
 
 // Database Connection
+mongoose.set('strictQuery', true);
 mongoose
 .connect(DB_URL)
 .then(()=>{
